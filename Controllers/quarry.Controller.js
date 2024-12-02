@@ -22,8 +22,21 @@ export const quarryViaMailSendingController = async (req, res)=>{
     }
 }
 export const sendQuarryViaFooterMail = async (req, res)=>{
+    const {email, description} = req.body;
+    console.log("Mail hit");
+    
     try {
-        
+        if (!email || !description) {
+            return res.status(400).json({ success: false, message: 'All fields are required.' });
+        }
+        const result = await sendClientQueryEmail({email, description });
+       if (result.success) {
+        const clientReplyResult = await sendOwnerReplyEmail(email);
+        if(clientReplyResult.success) {
+            console.log("Greet message has send sent", clientReplyResult.success);
+        }
+       return res.status(200).json({ success: true, message: 'Query sent successfully!' });
+    }
     } catch (error) {
         
     }

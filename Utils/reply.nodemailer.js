@@ -17,9 +17,9 @@ const sendOwnerReplyEmail = async (userEmail, clientName) => {
         const mailOptions = {
             from: process.env.EMAIL_USER, // Owner's email
             to: userEmail, // Client's email
-            subject: `Thank You for Your Inquiry, ${clientName}!`,
+            subject: `Thank You for Your Inquiry, ${clientName || "Sir/Mam"}!`,
             html: `
-                <h1>Hello ${clientName},</h1>
+                <h1>Hello ${clientName || "Sir/Mam"} ,</h1>
                 <p>Thank you for reaching out to <strong>Interior Decor Solutions</strong>. We're thrilled to help you with your home decor needs!</p>
                 
                 <h2>About Our Services:</h2>
@@ -39,7 +39,7 @@ const sendOwnerReplyEmail = async (userEmail, clientName) => {
                 <p>Feel free to reply to this email or call us if you have more questions. We look forward to working with you!</p>
                 
                 <p>Best Regards,</p>
-                <p><strong>Sephesticate Decor</strong></p>
+                <p><strong>Sephisticate Decor</strong></p>
             `,
         };
 
