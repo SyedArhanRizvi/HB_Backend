@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 app.use(cors({
-    origin : ['https://haider-bhai-w.vercel.app/', '*'],
+    origin : ['https://haider-bhai-w.vercel.app'],
     credentials : true
 }));
 app.use(express.json());
