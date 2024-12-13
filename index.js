@@ -14,12 +14,12 @@ app.use(cors({
     origin : ['https://haider-bhai-w.vercel.app', 'http://localhost:5173'],
     credentials : true
 }));
-app.use(express.json());
+app.use(express.json());``
 app.use(express.urlencoded({extended:true}));
 
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
-    console.log("MongoDB has been sccessfully connected");
+    console.log("MongoDB has been Successfully connected");
     app.listen(process.env.PORT, ()=>{
         console.log("server hosted ", process.env.PORT);
     })

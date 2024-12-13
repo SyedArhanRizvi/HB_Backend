@@ -4,7 +4,7 @@ dotenv.config();
 
 // Nodemailer function
 const sendClientQueryEmail = async (clientData) => {
-    const { name, email, phone, description } = clientData;
+    const { name, email, phone, description, slot } = clientData;
 
     try {
         // Create a transporter
@@ -26,6 +26,7 @@ const sendClientQueryEmail = async (clientData) => {
                 <p><strong>Name:</strong> ${name || "New Costumer"}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone || "NAN"}</p>
+                <p><strong>Slot Booking Time:</strong> ${slot || "NAN"}</p>
                 <p><strong>Description:</strong></p>
                 <p>${description}</p>
             `,
